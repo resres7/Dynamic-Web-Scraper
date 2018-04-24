@@ -13,7 +13,6 @@ class Clients:
         print(f"For {addr} was added "+ " ".join(modes))
     
     def __str__(self):
-        #c_data = sum([1 for cln in self.cln if cln])
         out_str = []
         for cln in self.clns:
             out_str.append(cln + ": " + " ".join(self.clns[cln]))
@@ -21,6 +20,14 @@ class Clients:
 
     def get_data(self, addr):
         return self.clns.get(addr)
+
+    def del_cln(self, addr):
+        try:
+            del self.clns[addr]
+            print(f"Client {addr3} was deleted")
+            return True
+        except Exception as e:
+            print("~"*20,f"\nClient {addr} CANT be deleted\n", e, "\n")
 
 
 
@@ -30,8 +37,6 @@ if __name__ == "__main__":
     listofmodes = ["akkasgf_tv","-m", "-n", "-l"]
     for addr in addrs:
         clns.add_args(addr, listofmodes)
-    #print("-"*20)
-    #print([(addr, mode) for addr in addrs for mode in listofmodes])
-    #[clns.add_args(addr, mode) for addr in addrs for mode in listofmodes]
-
+    print(clns)
+    clns.del_cln(addrs[-1])
     print(clns)
