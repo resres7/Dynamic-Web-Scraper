@@ -24,7 +24,7 @@ class Clients:
     def del_cln(self, addr):
         try:
             del self.clns[addr]
-            print(f"Client {addr3} was deleted")
+            print(f"Client {addr} was deleted")
             return True
         except Exception as e:
             print("~"*20,f"\nClient {addr} CANT be deleted\n", e, "\n")
